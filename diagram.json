@@ -1,0 +1,143 @@
+{
+  "version": 1,
+  "author": "Aswin Sindhu",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-esp32-devkit-v1",
+      "id": "esp",
+      "top": -285.5,
+      "left": 435.6,
+      "rotate": 180,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-hx711",
+      "id": "cell1",
+      "top": -199,
+      "left": 645.8,
+      "attrs": { "type": "50kg" }
+    },
+    {
+      "type": "wokwi-gnd",
+      "id": "gnd1",
+      "top": -555.4,
+      "left": 873.4,
+      "rotate": 180,
+      "attrs": {}
+    },
+    { "type": "wokwi-vcc", "id": "vcc1", "top": -546.44, "left": 57.6, "attrs": {} },
+    { "type": "wokwi-gnd", "id": "gnd2", "top": -105.6, "left": 306.6, "attrs": {} },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": -28.8,
+      "left": 403.2,
+      "rotate": 180,
+      "attrs": { "volume": "0.1" }
+    },
+    {
+      "type": "wokwi-rgb-led",
+      "id": "rgb1",
+      "top": -394.6,
+      "left": 307.5,
+      "attrs": { "common": "cathode" }
+    },
+    {
+      "type": "wokwi-led-bar-graph",
+      "id": "bargraph1",
+      "top": -427.2,
+      "left": 628.8,
+      "attrs": { "color": "BCYR" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": -499.3,
+      "left": 464.3,
+      "rotate": 90,
+      "attrs": { "color": "green" }
+    },
+    {
+      "type": "wokwi-rgb-led",
+      "id": "rgb2",
+      "top": -433,
+      "left": 336.3,
+      "rotate": 270,
+      "attrs": { "common": "cathode" }
+    },
+    {
+      "type": "wokwi-rgb-led",
+      "id": "rgb3",
+      "top": -427.2,
+      "left": 274.5,
+      "rotate": 90,
+      "attrs": { "common": "cathode" }
+    },
+    {
+      "type": "wokwi-rgb-led",
+      "id": "rgb4",
+      "top": -461,
+      "left": 302.5,
+      "rotate": 180,
+      "attrs": { "common": "cathode" }
+    },
+    {
+      "type": "wokwi-hx711",
+      "id": "cell2",
+      "top": -290.4,
+      "left": 124,
+      "rotate": 180,
+      "attrs": { "type": "50kg" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX0", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX0", "$serialMonitor:TX", "", [] ],
+    [ "cell1:GND", "gnd1:GND", "black", [ "h-28.8", "v-96.3", "h-0.4" ] ],
+    [ "cell1:VCC", "vcc1:VCC", "red", [ "h-48", "v96", "h-547.2" ] ],
+    [ "cell1:SCK", "esp:D32", "yellow", [ "h0" ] ],
+    [ "cell1:DT", "esp:D33", "cyan", [ "h-105.6", "v28.3" ] ],
+    [ "gnd1:GND", "bz1:1", "black", [ "v0" ] ],
+    [ "bz1:2", "esp:D4", "red", [ "v-19.2", "h-230", "v-201.6" ] ],
+    [ "gnd2:GND", "rgb1:COM", "black", [ "v-48", "h19.2" ] ],
+    [ "rgb1:R", "esp:D19", "red", [ "v0" ] ],
+    [ "rgb1:G", "esp:D5", "green", [ "v0" ] ],
+    [ "rgb1:B", "esp:D18", "blue", [ "v0" ] ],
+    [ "bargraph1:A1", "esp:D19", "red", [ "h-76.8", "v249.6" ] ],
+    [ "bargraph1:A2", "esp:D19", "red", [ "h-57.6", "v153.6" ] ],
+    [ "bargraph1:A3", "esp:D19", "red", [ "h-67.2", "v230.4" ] ],
+    [ "gnd1:GND", "bargraph1:C1", "black", [ "v76.8", "h-105.6" ] ],
+    [ "gnd1:GND", "bargraph1:C2", "black", [ "v0" ] ],
+    [ "gnd1:GND", "bargraph1:C3", "black", [ "v0" ] ],
+    [ "gnd1:GND", "bargraph1:C4", "black", [ "v0" ] ],
+    [ "gnd1:GND", "bargraph1:C5", "black", [ "v0" ] ],
+    [ "gnd1:GND", "bargraph1:C6", "black", [ "v0" ] ],
+    [ "gnd1:GND", "bargraph1:C7", "black", [ "v0" ] ],
+    [ "gnd1:GND", "bargraph1:C8", "black", [ "v0" ] ],
+    [ "gnd1:GND", "bargraph1:C9", "black", [ "v0" ] ],
+    [ "gnd1:GND", "bargraph1:C10", "black", [ "v0" ] ],
+    [ "bargraph1:A10", "esp:D18", "green", [ "h0" ] ],
+    [ "bargraph1:A9", "esp:D18", "green", [ "h0" ] ],
+    [ "bargraph1:A8", "esp:D18", "green", [ "h0" ] ],
+    [ "bargraph1:A7", "esp:D5", "blue", [ "h0" ] ],
+    [ "bargraph1:A6", "esp:D5", "blue", [ "h0" ] ],
+    [ "bargraph1:A5", "esp:D5", "blue", [ "h0" ] ],
+    [ "bargraph1:A4", "esp:D19", "red", [ "h-76.8", "v220.8" ] ],
+    [ "gnd1:GND", "btn1:1.r", "black", [ "v105.6", "h115.2", "v96" ] ],
+    [ "btn1:2.r", "esp:D25", "magenta", [ "v0.2", "h-86.6", "v230.4" ] ],
+    [ "rgb2:COM", "rgb1:COM", "green", [ "v0" ] ],
+    [ "rgb2:R", "rgb1:R", "green", [ "v28.8" ] ],
+    [ "rgb2:G", "rgb1:G", "green", [ "v0" ] ],
+    [ "rgb2:B", "rgb1:B", "green", [ "v0" ] ],
+    [ "rgb3:B", "rgb1:B", "green", [ "v0" ] ],
+    [ "rgb3:G", "rgb1:G", "green", [ "v0" ] ],
+    [ "rgb3:COM", "rgb1:COM", "green", [ "v0" ] ],
+    [ "rgb3:R", "rgb1:R", "green", [ "v0" ] ],
+    [ "rgb4:B", "rgb3:B", "green", [ "h0" ] ],
+    [ "rgb4:G", "rgb3:G", "green", [ "h-39.7", "v65.9" ] ],
+    [ "rgb4:COM", "rgb3:COM", "green", [ "v10", "h-48.5" ] ],
+    [ "rgb4:R", "rgb3:R", "green", [ "h-57.6", "v48" ] ]
+  ],
+  "dependencies": {}
+}
